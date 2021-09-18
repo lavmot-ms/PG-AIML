@@ -26,7 +26,7 @@ Lets get started by automating the setup configurations and installing required 
 
 sh Setup.sh
 ```
-#### Configurations Added
+#### Tools  Needed
 <blockquote>
 
 | Tool         | Description                                 | Docs                                     |
