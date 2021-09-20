@@ -40,7 +40,7 @@ sh Setup.sh
 
 <br>
 
-#### Running
+#### Usage
 
 ```
 # Run the following command and select the project to run.

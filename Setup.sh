@@ -1,2 +1,4 @@
-echo "Setting Up Environment"
-echo "Switching to Anaconda PG-AIML Working Environment"
+reset
+source /Users/laviusmotileng/opt/anaconda3/bin/jupyter
+jupyter notebook
+
