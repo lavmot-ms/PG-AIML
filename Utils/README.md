@@ -38,9 +38,8 @@ sh InstallTools.sh
 ## Contributing
 <blockquote>
 <p>
-
- Should you need add a tool and need assistance feel free to contact me at:
-Lavius.Motileng@outlook.com
+Should you need to add an automation script please feel free to contact me at:
+Lavius.Motileng@outlook.com or fork the repo!
 <br>
 </p>
 </blockquote>
