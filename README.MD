@@ -55,7 +55,7 @@ sh Start.sh
 | Tool         | Description                                 | Docs                                     |
 | ------------ | ------------------------------------------- | -------------------------------          |
 |                                 |
-| Assignment 1 | Data Exploration                            | [Docs]("./src/Assignments/Assignment1 Data Exploration/")                 |
+| Assignment 1 | Data Exploration                            | [Docs]('./src/Assignments/Assignment1 Data Exploration/')                 |
 | Project1     | Coming...                                   | [Docs](./src/Projectone)                 |
 | Project1     | Coming...                                   | [Docs](./src/Projectone)                 |
 
