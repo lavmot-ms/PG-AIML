@@ -728,6 +728,17 @@ sns.pairplot(data=main_data, hue="Product", kind="reg", palette={'TM798':default
 
 
 ```python
+sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette={'Single':default_colors[0], 'Partnered':default_colors[1]});
+```
+
+
+    
+![png](README_files/README_29_0.png)
+    
+
+
+
+```python
 fig, ax = plt.subplots(figsize=(18,18)) 
 sns.heatmap(data=main_data.corr(), annot=True, linewidths=.5, ax=ax)
 plt.show()
@@ -735,7 +746,7 @@ plt.show()
 
 
     
-![png](README_files/README_29_0.png)
+![png](README_files/README_30_0.png)
     
 
 
@@ -761,13 +772,13 @@ plt.legend(loc='upper right')
 
 
     
-![png](README_files/README_31_1.png)
+![png](README_files/README_32_1.png)
     
 
 
 
     
-![png](README_files/README_31_2.png)
+![png](README_files/README_32_2.png)
     
 
 
@@ -813,19 +824,19 @@ plt.show()
 
 
     
-![png](README_files/README_33_0.png)
+![png](README_files/README_34_0.png)
     
 
 
 
     
-![png](README_files/README_33_1.png)
+![png](README_files/README_34_1.png)
     
 
 
 
     
-![png](README_files/README_33_2.png)
+![png](README_files/README_34_2.png)
     
 
 
@@ -846,8 +857,3 @@ os.system('jupyter nbconvert --to markdown --output "README.md" "DataExploration
     0
 
 
-
-
-```python
-
-```
