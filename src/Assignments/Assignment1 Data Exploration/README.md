@@ -760,6 +760,8 @@ plt.show()
 sns.catplot(data=main_data, x="Product", y="Usage", hue="Gender", kind="box", palette=gender_palette);
 sns.catplot(data=main_data, x="Product", y="Age", hue="Gender", kind="box", palette=gender_palette);
 sns.catplot(data=main_data, x="Product", y="Education", hue="Gender", kind="box", palette=gender_palette);
+sns.catplot(data=main_data, x="Product", y="Income", hue="Gender", kind="box", palette=gender_palette);
+sns.catplot(data=main_data, x="Product", y="Miles", hue="Gender", kind="box", palette=gender_palette);
 
 plt.legend(loc='upper right')
 ```
@@ -767,7 +769,7 @@ plt.legend(loc='upper right')
 
 
 
-    <matplotlib.legend.Legend at 0x1cc5eba47f0>
+    <matplotlib.legend.Legend at 0x1cc5d505d30>
 
 
 
@@ -786,6 +788,18 @@ plt.legend(loc='upper right')
 
     
 ![png](README_files/README_32_3.png)
+    
+
+
+
+    
+![png](README_files/README_32_4.png)
+    
+
+
+
+    
+![png](README_files/README_32_5.png)
     
 
 
