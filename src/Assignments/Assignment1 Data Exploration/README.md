@@ -728,7 +728,7 @@ sns.pairplot(data=main_data, hue="Product", kind="reg", palette={'TM798':default
 
 
 ```python
-sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette={'Single':default_colors[0], 'Partnered':default_colors[1]});
+sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette={'Single':default_colors[0], 'Partnered':default_colors[3]});
 ```
 
 
