@@ -502,7 +502,7 @@ for ax in axs.flat:                                                         # Go
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_16_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_16_0.png)
     
 
 
@@ -576,13 +576,13 @@ for count in range(3):
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_18_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_18_0.png)
     
 
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_18_1.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_18_1.png)
     
 
 
@@ -635,7 +635,7 @@ for ax in axs.flat:
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_20_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_20_0.png)
     
 
 
@@ -676,7 +676,7 @@ for ax in axs.flat:
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_22_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_22_0.png)
     
 
 
@@ -706,7 +706,7 @@ sns.pairplot(data=main_data, hue="Gender", kind="reg", palette=gender_palette);
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_26_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_26_0.png)
     
 
 
@@ -722,7 +722,7 @@ sns.pairplot(data=main_data, hue="Product", kind="reg", palette={'TM798':default
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_28_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_28_0.png)
     
 
 
@@ -735,7 +735,7 @@ plt.show()
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_29_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_29_0.png)
     
 
 
@@ -755,19 +755,19 @@ plt.legend(loc='upper right')
 
 
 
-    <matplotlib.legend.Legend at 0x144011c5370>
+    <matplotlib.legend.Legend at 0x1cc5d6a2760>
 
 
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_31_1.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_31_1.png)
     
 
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_31_2.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_31_2.png)
     
 
 
@@ -813,19 +813,19 @@ plt.show()
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_33_0.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_33_0.png)
     
 
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_33_1.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_33_1.png)
     
 
 
 
     
-![png](Data%20Exploration%20Assignment_files/Data%20Exploration%20Assignment_33_2.png)
+![png](DataExplorationAssignment_files/DataExplorationAssignment_33_2.png)
     
 
 
@@ -837,13 +837,13 @@ Product TM798 seems be more used and and the business should consider stocking m
 
 
 ```python
-os.system('jupyter nbconvert --to markdown "Data Exploration Assignment.ipynb"')
+os.system('jupyter nbconvert --to markdown "DataExplorationAssignment.ipynb"')
 ```
 
 
 
 
-    0
+    -1
 
 
 
