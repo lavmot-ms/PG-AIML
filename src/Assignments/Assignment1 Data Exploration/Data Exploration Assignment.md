@@ -837,5 +837,17 @@ Product TM798 seems be more used and and the business should consider stocking m
 
 
 ```python
-os.system('jupyter nbconvert --to html "Data Exploration Assignment.ipynb"')
+os.system('jupyter nbconvert --to markdown "Data Exploration Assignment.ipynb"')
+```
+
+
+
+
+    0
+
+
+
+
+```python
+
 ```
