@@ -502,7 +502,7 @@ for ax in axs.flat:                                                         # Go
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_16_0.png)
+![png](README.MD_files/README.MD_16_0.png)
     
 
 
@@ -576,13 +576,13 @@ for count in range(3):
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_18_0.png)
+![png](README.MD_files/README.MD_18_0.png)
     
 
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_18_1.png)
+![png](README.MD_files/README.MD_18_1.png)
     
 
 
@@ -635,7 +635,7 @@ for ax in axs.flat:
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_20_0.png)
+![png](README.MD_files/README.MD_20_0.png)
     
 
 
@@ -676,7 +676,7 @@ for ax in axs.flat:
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_22_0.png)
+![png](README.MD_files/README.MD_22_0.png)
     
 
 
@@ -706,7 +706,7 @@ sns.pairplot(data=main_data, hue="Gender", kind="reg", palette=gender_palette);
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_26_0.png)
+![png](README.MD_files/README.MD_26_0.png)
     
 
 
@@ -722,7 +722,7 @@ sns.pairplot(data=main_data, hue="Product", kind="reg", palette={'TM798':default
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_28_0.png)
+![png](README.MD_files/README.MD_28_0.png)
     
 
 
@@ -735,7 +735,7 @@ plt.show()
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_29_0.png)
+![png](README.MD_files/README.MD_29_0.png)
     
 
 
@@ -761,13 +761,13 @@ plt.legend(loc='upper right')
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_31_1.png)
+![png](README.MD_files/README.MD_31_1.png)
     
 
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_31_2.png)
+![png](README.MD_files/README.MD_31_2.png)
     
 
 
@@ -813,19 +813,19 @@ plt.show()
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_33_0.png)
+![png](README.MD_files/README.MD_33_0.png)
     
 
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_33_1.png)
+![png](README.MD_files/README.MD_33_1.png)
     
 
 
 
     
-![png](DataExplorationAssignment_files/DataExplorationAssignment_33_2.png)
+![png](README.MD_files/README.MD_33_2.png)
     
 
 
@@ -837,17 +837,12 @@ Product TM798 seems be more used and and the business should consider stocking m
 
 
 ```python
-os.system('jupyter nbconvert --to markdown "DataExplorationAssignment.ipynb"')
+os.system('jupyter nbconvert --to markdown --output "README.MD" "DataExplorationAssignment.ipynb"')
 ```
 
 
 
 
-    -1
+    0
 
 
-
-
-```python
-
-```
