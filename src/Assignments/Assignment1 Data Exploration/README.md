@@ -757,49 +757,38 @@ plt.show()
 
 
 ```python
-sns.catplot(data=main_data, x="Product", y="Usage", hue="Gender", kind="box", palette=gender_palette);
-sns.catplot(data=main_data, x="Product", y="Age", hue="Gender", kind="box", palette=gender_palette);
-sns.catplot(data=main_data, x="Product", y="Education", hue="Gender", kind="box", palette=gender_palette);
-sns.catplot(data=main_data, x="Product", y="Income", hue="Gender", kind="box", palette=gender_palette);
-sns.catplot(data=main_data, x="Product", y="Miles", hue="Gender", kind="box", palette=gender_palette);
+fig, axs = plt.subplots(
+    nrows=2,                                                                # Number of rows of the grid
+    ncols=3,                                                                # Number of columns of the grid.
+    figsize=(15,10),                                                        # The size each figure
+    constrained_layout=True)                                                # To avoid overlap between values
+
+def plot_product_comparison_boxplot(ax, df_column_name):
+    
+    ax = sns.boxplot(data=main_data,
+                     x="Product",
+                     y=df_column_name,
+                     hue="Gender",
+                     palette=gender_palette,
+                     ax=ax);
+    
+    ax.set_xlabel(df_column_name)                                           # Set the x-axis label of the chart.                                           
+    ax.set_title(df_column_name + ' Profile', fontsize=14)                  # Set the title of the chart
+    
+continuous_data_column_names = ['Age', 'Income', 'Miles', 'Usage', 'Fitness', 'Education']
+count =0
+
+for ax in axs.flat:
+    plot_product_comparison_boxplot(ax, continuous_data_column_names[count])
+    count = count + 1
 
 plt.legend(loc='upper right')
+plt.show()
 ```
 
 
-
-
-    <matplotlib.legend.Legend at 0x1cc5d505d30>
-
-
-
-
     
-![png](README_files/README_32_1.png)
-    
-
-
-
-    
-![png](README_files/README_32_2.png)
-    
-
-
-
-    
-![png](README_files/README_32_3.png)
-    
-
-
-
-    
-![png](README_files/README_32_4.png)
-    
-
-
-
-    
-![png](README_files/README_32_5.png)
+![png](README_files/README_32_0.png)
     
 
 
@@ -810,54 +799,44 @@ plt.legend(loc='upper right')
 
 
 ```python
-plt.subplots(figsize=(13, 6))                          # Set chart size
-axs = sns.boxplot(x="Age",
-            y="MaritalStatus",
-            data=main_data,
-            palette=gender_palette,
-            hue="Gender")
-axs.set_title("Age Profile")
-sns.swarmplot(x=main_data['Age'], y=main_data['MaritalStatus'], hue=main_data['Gender'], palette=gender_palette)
+fig, axs = plt.subplots(
+    nrows=2,                                                                # Number of rows of the grid
+    ncols=3,                                                                # Number of columns of the grid.
+    figsize=(15,10),                                                        # The size each figure
+    constrained_layout=True)                                                # To avoid overlap between values
 
-plt.subplots(figsize=(13, 6))
-axs = sns.boxplot(
-            x="Income",
-            y="MaritalStatus",
-            data=main_data,
-            palette=gender_palette,
-            hue="Gender")
-axs.set_title("Icome Profile")
-sns.swarmplot(x=main_data['Income'], y=main_data['MaritalStatus'], hue=main_data['Gender'], palette=gender_palette)
+def plot_marital_status_comparison_boxplot(ax, df_column_name):
+    
+    ax = sns.boxplot(data=main_data,
+                     x="MaritalStatus",
+                     y=df_column_name,
+                     hue="Gender",
+                     palette=gender_palette,
+                     ax=ax);
+#     ax = sns.swarmplot(data=main_data,
+#                        x=df_column_name,
+#                        y=main_data['MaritalStatus'],
+#                        hue=main_data['Gender'],
+#                        palette=gender_palette,
+#                       ax=ax);
+    
+    ax.set_xlabel(df_column_name)                                           # Set the x-axis label of the chart.                                           
+    ax.set_title(df_column_name + ' Profile', fontsize=14)                  # Set the title of the chart
+    
+continuous_data_column_names = ['Age', 'Income', 'Miles', 'Usage', 'Fitness', 'Education']
+count =0
 
-plt.subplots(figsize=(13, 6))
-axs = sns.boxplot(
-            x="Usage",
-            y="MaritalStatus",
-            data=main_data,
-            palette=gender_palette,
-            hue="Gender")
-axs.set_title("Icome Profile")
-sns.swarmplot(x=main_data['Usage'], y=main_data['MaritalStatus'], hue=main_data['Gender'], palette=gender_palette)
+for ax in axs.flat:
+    plot_marital_status_comparison_boxplot(ax, continuous_data_column_names[count])
+    count = count + 1
 
-
+plt.legend(loc='upper right')
 plt.show()
 ```
 
 
     
 ![png](README_files/README_34_0.png)
-    
-
-
-
-    
-![png](README_files/README_34_1.png)
-    
-
-
-
-    
-![png](README_files/README_34_2.png)
     
 
 
