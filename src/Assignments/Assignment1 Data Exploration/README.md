@@ -813,12 +813,6 @@ def plot_marital_status_comparison_boxplot(ax, df_column_name):
                      hue="Gender",
                      palette=gender_palette,
                      ax=ax);
-#     ax = sns.swarmplot(data=main_data,
-#                        x=df_column_name,
-#                        y=main_data['MaritalStatus'],
-#                        hue=main_data['Gender'],
-#                        palette=gender_palette,
-#                       ax=ax);
     
     ax.set_xlabel(df_column_name)                                           # Set the x-axis label of the chart.                                           
     ax.set_title(df_column_name + ' Profile', fontsize=14)                  # Set the title of the chart
@@ -837,6 +831,43 @@ plt.show()
 
     
 ![png](README_files/README_34_0.png)
+    
+
+
+
+```python
+fig, axs = plt.subplots(
+    nrows=2,                                                                # Number of rows of the grid
+    ncols=3,                                                                # Number of columns of the grid.
+    figsize=(15,10),                                                        # The size each figure
+    constrained_layout=True)                                                # To avoid overlap between values
+
+def plot_marital_status_comparison_boxplot(ax, df_column_name):
+    
+    ax = sns.lineplot(data=main_data,
+                     x=main_data['Age'],
+                     y=main_data[df_column_name],
+                     hue="Gender",
+                     palette=gender_palette,
+                     ci=0,
+                     ax=ax);
+    
+    ax.legend(loc='upper right')                                            # Move the legend to the upper right of the chart
+    
+continuous_data_column_names = ['Miles', 'Usage', 'Fitness', 'Education', 'Product', 'MaritalStatus']
+count =0
+
+for ax in axs.flat:
+    plot_marital_status_comparison_boxplot(ax, continuous_data_column_names[count])
+    count = count + 1
+
+plt.legend(loc='upper right')
+plt.show()
+```
+
+
+    
+![png](README_files/README_35_0.png)
     
 
 
