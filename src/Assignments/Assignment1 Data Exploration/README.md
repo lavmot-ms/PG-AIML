@@ -33,21 +33,6 @@ sns.set(color_codes=False)                          # Displays charts with backg
 main_data= pd.read_csv('CardioGoodFitness.csv');   # Load the data
 ```
 
- <span style="font-family: Arial; font-weight:bold;font-size:1.2em;color:#0e92ea"> Set Up Dashboard Theme:
-
-
-```python
-default_colors = ["#4FC3F7","#E65100", "#E91E63", "#1B5E20", "#42A5F5", "#FFEB3B"]       # Set red and blue for good and bad colors.
-gender_palette = {"Female":"#E91E63", "Male":"#42A5F5"}            # Set of gender based color palette map (pink, blue).
-
-# sns.set_theme(
-#     context="notebook",                                            # Sets default size for charts. 
-#     font_scale=1.5,                                                # Default font size .
-#     style="darkgrid");                                             # Dashboard chart background style.
-
-sns.set_palette(sns.color_palette(default_colors))                 # Initialize defaultcolor palette for the notebook charts
-```
-
 ####  <span style="font-family: Arial; font-weight:bold;font-size:1.9em;color:#0e92ea"> 1. Overview of The Data Attributes:
 
 &nbsp;
@@ -460,6 +445,28 @@ main_data.groupby(['Gender']).mean() # Eplore mean by Gender for each column
 
 
 
+ <span style="font-family: Arial; font-weight:bold;font-size:1.2em;color:#0e92ea"> Set Up Dashboard Theme:
+
+
+```python
+"""
+Set color palettes for categorial data.
+"""
+default_color_palette = ["#03A9F4", "#FF6F00", "#0288D1", "#D50000", "#7C4DFF"]
+gender_color_palette  = {"Female":"#E91E63", "Male":"#42A5F5"}
+product_color_palette = {'TM798':"#4FC3F7", 'TM195':"#4CAF50",'TM498':"#E91E63"}
+maritalcolorstatus_color_palette = {'Single':'#ff3d00', 'Partnered':'#00c853'}
+stats_colors = {'Mean':'#D50000', 'Mode':'#FF3D00', 'Median':'#2962FF'}
+
+
+sns.set_theme(
+    context="notebook",                                            # Sets default size for charts. 
+    font_scale=1.5,                                                # Default font size .
+    style="darkgrid");                                             # Dashboard chart background style.
+
+sns.set_palette(sns.color_palette(default_color_palette))          # Initialize defaultcolor palette for the notebook charts
+```
+
 ####  <span style="font-family: Arial; font-weight:bold;font-size:1.9em;color:#0e92ea"> 2. Univariate Data Analysis:
 
 
@@ -487,7 +494,7 @@ def plot_cartegorial_charts(ax, df_column_name):                            # He
         data=main_data,                                                     # Use the original data frame
         x=main_data[df_column_name],                                        # Use the column name passed in to get the series/values of that column
         hue="Gender",                                                       # Split the visual into Male and Female
-        palette=gender_palette,                                             # Use gender specific colors (pink and blue)
+        palette=gender_color_palette,                                       # Use gender specific colors (pink and blue)
         ax=ax)                                                              # Plot on the given axis 
     ax.set_title(df_column_name + ' Profile', fontsize=14)                  # Set the title of the chart. 
     ax.legend(loc='upper right')                                            # Put the legend of the chart on the top right.
@@ -541,17 +548,17 @@ def plot_distribution_chart(box_chart_ax, hist_chart_ax, df_column_name):   # Pl
         ax=hist_chart_ax)
     
     hist_chart_ax.axvline(main_data[df_column_name].mean(),                 # Get the mean of the values in the given column and draw a vertical line that cuts the chart on the mean value 
-               color=default_colors[0],                                     # Use on of the colors predefined on this notebook
+               color=stats_colors['Mean'],                                  # Use on of the colors predefined on this notebook
                label='Mean',                                                # Set the label to be diplayed on the legend
                linestyle="dashed");                                         # Make the line have dashes
     
     hist_chart_ax.axvline(main_data[df_column_name].median(),               # Plot the median line on the chart.
-               color=default_colors[1],                                     # Use on of the colors predefined on this notebook
+               color=stats_colors['Median'],                                # Use on of the colors predefined on this notebook
                label='Median',                                              # Set the label to be diplayed on the legend
                linestyle="dashed");                                         # Make the line have dashes
     
     hist_chart_ax.axvline(main_data[df_column_name].mode()[0],              # Plot the mode line on the chart.
-               color=default_colors[3],                                     # Use on of the colors predefined on this notebook 
+               color=stats_colors['Mode'],                                  # Use on of the colors predefined on this notebook 
                label='Mode',                                                # Set the label to be diplayed on the legend
                linestyle="dashed");                                         # Make the line have dashes
     
@@ -612,21 +619,20 @@ def plot_box_chart(ax, df_column_name):                                     # He
     
     sns.stripplot(x=main_data[df_column_name],                              # Plot the stripplot show were most of the data in the violin lies
                   ax = ax,                                                  # Plot the violin on the given grid axis
-                  color=default_colors[1],                                  # use one the note-book'spredefined colors for the dots
+                  color=default_color_palette[1],                           # use one the note-book'spredefined colors for the dots
                   jitter=True)                                              # Allows stripplot to visualize number of datapoints for a given x-axis 
     
     ax.axvline(main_data[df_column_name].mean(),                            # Plot the mean on the same axis as the violinplot. 
-               color=default_colors[3],                                     # Use one of the notebook's predeined colors
+               color=default_color_palette[3],                              # Use one of the notebook's predeined colors
                label='Mean',                                                # Set the label to display on the legend
                linestyle="dashed");                                         # set the line style to have dashes.
-    
+
     ax.set_xlabel(df_column_name)                                           # Set the x-axis label of the chart.                                           
     ax.set_title(df_column_name + ' Profile', fontsize=14)                  # Set the title of the chart
     ax.legend(loc='upper right')                                            # Move the legend to the upper right of the chart
 
 continuous_data_column_names = ['Age', 'Income', 'Miles', 'Usage', 'Fitness', 'Education']
 count =0
-
 for ax in axs.flat:
     plot_box_chart(ax, continuous_data_column_names[count])
     count = count + 1
@@ -658,16 +664,16 @@ fig, axs = plt.subplots(
 def plot_distribution_chart(ax, df_column_name):
     ax = sns.kdeplot(main_data[df_column_name],
                      ax=ax,                                                 # Plot the kds chart on the given axis
-                     palette=gender_palette,                                # Use gender specific colors defined at the start of this notebook
+                     palette=gender_color_palette,                          # Use gender specific colors defined at the start of this notebook
                      hue=main_data["Gender"],                               # Split the chart by gender
                      shade=True);                                           # Shaded the area below the curve
     
     ax.set_xlabel(df_column_name)                                           # Set the x-axis label of the chart.                                           
     ax.set_title(df_column_name + ' Profile', fontsize=14)                  # Set the title of the chart
+
     
 continuous_data_column_names = ['Age', 'Income', 'Miles', 'Usage', 'Fitness', 'Education']
 count =0
-
 for ax in axs.flat:
     plot_distribution_chart(ax, continuous_data_column_names[count])
     count = count + 1
@@ -700,7 +706,7 @@ for ax in axs.flat:
 
 
 ```python
-sns.pairplot(data=main_data, hue="Gender", kind="reg", palette=gender_palette);
+sns.pairplot(data=main_data, hue="Gender", kind="reg", palette=gender_color_palette);
 ```
 
 
@@ -716,7 +722,7 @@ sns.pairplot(data=main_data, hue="Gender", kind="reg", palette=gender_palette);
 
 
 ```python
-sns.pairplot(data=main_data, hue="Product", kind="reg", palette={'TM798':default_colors[0], 'TM195':default_colors[1],'TM498':default_colors[2]});
+sns.pairplot(data=main_data, hue="Product", kind="reg", palette=product_color_palette);
 ```
 
 
@@ -727,7 +733,7 @@ sns.pairplot(data=main_data, hue="Product", kind="reg", palette={'TM798':default
 
 
 ```python
-sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette={'Single':'#ff3d00', 'Partnered':'#00c853'});
+sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette=maritalcolorstatus_color_palette);
 ```
 
 
@@ -768,7 +774,7 @@ def plot_product_comparison_boxplot(ax, df_column_name):
                      x="Product",
                      y=df_column_name,
                      hue="Gender",
-                     palette=gender_palette,
+                     palette=gender_color_palette,
                      ax=ax);
     ax.legend(loc='upper right')                                            # Move the legend to the upper right of the chart
     
@@ -808,7 +814,7 @@ def plot_marital_status_comparison_boxplot(ax, df_column_name):
                      x="MaritalStatus",
                      y=df_column_name,
                      hue="Gender",
-                     palette=gender_palette,
+                     palette=gender_color_palette,
                      ax=ax);
     ax.legend(loc='upper right')                                            # Move the legend to the upper right of the chart
 
@@ -824,12 +830,6 @@ plt.show()
 ```
 
 
-    
-![png](README_files/README_34_0.png)
-    
-
-
-
 ```python
 fig, axs = plt.subplots(
     nrows=2,                                                                # Number of rows of the grid
@@ -843,10 +843,9 @@ def plot_marital_status_comparison_boxplot(ax, df_column_name):
                      x=main_data['Age'],
                      y=main_data[df_column_name],
                      hue="Gender",
-                     palette=gender_palette,
+                     palette=gender_color_palette,
                      ci=0,
                      ax=ax);
-    
     ax.legend(loc='upper right')                                            # Move the legend to the upper right of the chart
     
 continuous_data_column_names = ['Miles', 'Usage', 'Fitness', 'Education', 'Product', 'MaritalStatus']
@@ -860,12 +859,6 @@ plt.legend(loc='upper right')
 plt.show()
 ```
 
-
-    
-![png](README_files/README_35_0.png)
-    
-
-
 <span style="font-family: Arial; font-weight:bold;font-size:1.2em;color:#0e92ea">3.2 Group Data With Regards to Product
 
 
@@ -874,527 +867,14 @@ main_data[main_data['Product']=='TM195'].describe(include="all")
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Product</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Education</th>
-      <th>MaritalStatus</th>
-      <th>Usage</th>
-      <th>Fitness</th>
-      <th>Income</th>
-      <th>Miles</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>80</td>
-      <td>80.000000</td>
-      <td>80</td>
-      <td>80.000000</td>
-      <td>80</td>
-      <td>80.000000</td>
-      <td>80.00000</td>
-      <td>80.00000</td>
-      <td>80.000000</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>1</td>
-      <td>NaN</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>TM195</td>
-      <td>NaN</td>
-      <td>Female</td>
-      <td>NaN</td>
-      <td>Partnered</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>80</td>
-      <td>NaN</td>
-      <td>40</td>
-      <td>NaN</td>
-      <td>48</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>NaN</td>
-      <td>28.550000</td>
-      <td>NaN</td>
-      <td>15.037500</td>
-      <td>NaN</td>
-      <td>3.087500</td>
-      <td>2.96250</td>
-      <td>46418.02500</td>
-      <td>82.787500</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>NaN</td>
-      <td>7.221452</td>
-      <td>NaN</td>
-      <td>1.216383</td>
-      <td>NaN</td>
-      <td>0.782624</td>
-      <td>0.66454</td>
-      <td>9075.78319</td>
-      <td>28.874102</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>NaN</td>
-      <td>18.000000</td>
-      <td>NaN</td>
-      <td>12.000000</td>
-      <td>NaN</td>
-      <td>2.000000</td>
-      <td>1.00000</td>
-      <td>29562.00000</td>
-      <td>38.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>NaN</td>
-      <td>23.000000</td>
-      <td>NaN</td>
-      <td>14.000000</td>
-      <td>NaN</td>
-      <td>3.000000</td>
-      <td>3.00000</td>
-      <td>38658.00000</td>
-      <td>66.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>NaN</td>
-      <td>26.000000</td>
-      <td>NaN</td>
-      <td>16.000000</td>
-      <td>NaN</td>
-      <td>3.000000</td>
-      <td>3.00000</td>
-      <td>46617.00000</td>
-      <td>85.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>NaN</td>
-      <td>33.000000</td>
-      <td>NaN</td>
-      <td>16.000000</td>
-      <td>NaN</td>
-      <td>4.000000</td>
-      <td>3.00000</td>
-      <td>53439.00000</td>
-      <td>94.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>NaN</td>
-      <td>50.000000</td>
-      <td>NaN</td>
-      <td>18.000000</td>
-      <td>NaN</td>
-      <td>5.000000</td>
-      <td>5.00000</td>
-      <td>68220.00000</td>
-      <td>188.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
 ```python
 main_data[main_data['Product']=='TM498'].describe(include="all")
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Product</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Education</th>
-      <th>MaritalStatus</th>
-      <th>Usage</th>
-      <th>Fitness</th>
-      <th>Income</th>
-      <th>Miles</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>60</td>
-      <td>60.000000</td>
-      <td>60</td>
-      <td>60.000000</td>
-      <td>60</td>
-      <td>60.000000</td>
-      <td>60.00000</td>
-      <td>60.000000</td>
-      <td>60.000000</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>1</td>
-      <td>NaN</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>TM498</td>
-      <td>NaN</td>
-      <td>Male</td>
-      <td>NaN</td>
-      <td>Partnered</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>60</td>
-      <td>NaN</td>
-      <td>31</td>
-      <td>NaN</td>
-      <td>36</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>NaN</td>
-      <td>28.900000</td>
-      <td>NaN</td>
-      <td>15.116667</td>
-      <td>NaN</td>
-      <td>3.066667</td>
-      <td>2.90000</td>
-      <td>48973.650000</td>
-      <td>87.933333</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>NaN</td>
-      <td>6.645248</td>
-      <td>NaN</td>
-      <td>1.222552</td>
-      <td>NaN</td>
-      <td>0.799717</td>
-      <td>0.62977</td>
-      <td>8653.989388</td>
-      <td>33.263135</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>NaN</td>
-      <td>19.000000</td>
-      <td>NaN</td>
-      <td>12.000000</td>
-      <td>NaN</td>
-      <td>2.000000</td>
-      <td>1.00000</td>
-      <td>31836.000000</td>
-      <td>21.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>NaN</td>
-      <td>24.000000</td>
-      <td>NaN</td>
-      <td>14.000000</td>
-      <td>NaN</td>
-      <td>3.000000</td>
-      <td>3.00000</td>
-      <td>44911.500000</td>
-      <td>64.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>NaN</td>
-      <td>26.000000</td>
-      <td>NaN</td>
-      <td>16.000000</td>
-      <td>NaN</td>
-      <td>3.000000</td>
-      <td>3.00000</td>
-      <td>49459.500000</td>
-      <td>85.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>NaN</td>
-      <td>33.250000</td>
-      <td>NaN</td>
-      <td>16.000000</td>
-      <td>NaN</td>
-      <td>3.250000</td>
-      <td>3.00000</td>
-      <td>53439.000000</td>
-      <td>106.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>NaN</td>
-      <td>48.000000</td>
-      <td>NaN</td>
-      <td>18.000000</td>
-      <td>NaN</td>
-      <td>5.000000</td>
-      <td>4.00000</td>
-      <td>67083.000000</td>
-      <td>212.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
 ```python
 main_data[main_data['Product']=='TM798'].describe(include="all")
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Product</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Education</th>
-      <th>MaritalStatus</th>
-      <th>Usage</th>
-      <th>Fitness</th>
-      <th>Income</th>
-      <th>Miles</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>40</td>
-      <td>40.000000</td>
-      <td>40</td>
-      <td>40.000000</td>
-      <td>40</td>
-      <td>40.000000</td>
-      <td>40.000000</td>
-      <td>40.00000</td>
-      <td>40.000000</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>1</td>
-      <td>NaN</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>TM798</td>
-      <td>NaN</td>
-      <td>Male</td>
-      <td>NaN</td>
-      <td>Partnered</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>40</td>
-      <td>NaN</td>
-      <td>33</td>
-      <td>NaN</td>
-      <td>23</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>NaN</td>
-      <td>29.100000</td>
-      <td>NaN</td>
-      <td>17.325000</td>
-      <td>NaN</td>
-      <td>4.775000</td>
-      <td>4.625000</td>
-      <td>75441.57500</td>
-      <td>166.900000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>NaN</td>
-      <td>6.971738</td>
-      <td>NaN</td>
-      <td>1.639066</td>
-      <td>NaN</td>
-      <td>0.946993</td>
-      <td>0.667467</td>
-      <td>18505.83672</td>
-      <td>60.066544</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>NaN</td>
-      <td>22.000000</td>
-      <td>NaN</td>
-      <td>14.000000</td>
-      <td>NaN</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>48556.00000</td>
-      <td>80.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>NaN</td>
-      <td>24.750000</td>
-      <td>NaN</td>
-      <td>16.000000</td>
-      <td>NaN</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>58204.75000</td>
-      <td>120.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>NaN</td>
-      <td>27.000000</td>
-      <td>NaN</td>
-      <td>18.000000</td>
-      <td>NaN</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>76568.50000</td>
-      <td>160.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>NaN</td>
-      <td>30.250000</td>
-      <td>NaN</td>
-      <td>18.000000</td>
-      <td>NaN</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>90886.00000</td>
-      <td>200.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>NaN</td>
-      <td>48.000000</td>
-      <td>NaN</td>
-      <td>21.000000</td>
-      <td>NaN</td>
-      <td>7.000000</td>
-      <td>5.000000</td>
-      <td>104581.00000</td>
-      <td>360.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 ####  <span style="font-family: Arial; font-weight:bold;font-size:1.9em;color:#0e92ea"> 4. Summary and Recommendations:
    
@@ -1406,10 +886,3 @@ Product TM798 seems be more used and and the business should consider stocking m
 ```python
 os.system('jupyter nbconvert --to markdown --output "README.md" "DataExplorationAssignment.ipynb"')
 ```
-
-
-
-
-    0
-
-
