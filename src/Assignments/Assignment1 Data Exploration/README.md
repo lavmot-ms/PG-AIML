@@ -455,7 +455,7 @@ Set color palettes.
 default_color_palette = ["#03A9F4", "#FF6F00", "#0288D1", "#D50000", "#7C4DFF"]
 gender_color_palette  = {"Female":"#E91E63", "Male":"#42A5F5"}
 product_color_palette = {'TM798':"#4FC3F7", 'TM195':"#4CAF50",'TM498':"#E91E63"}
-maritalcolorstatus_color_palette = {'Single':'#ff3d00', 'Partnered':'#00c853'}
+maritalstatus_color_palette = {'Single':'#ff3d00', 'Partnered':'#00c853'}
 stats_colors = {'Mean':'#D50000', 'Mode':'#FF3D00', 'Median':'#2962FF'}
 
 
@@ -733,7 +733,7 @@ sns.pairplot(data=main_data, hue="Product", kind="reg", palette=product_color_pa
 
 
 ```python
-sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette=maritalcolorstatus_color_palette);
+sns.pairplot(data=main_data, hue="MaritalStatus", kind="reg", palette=maritalstatus_color_palette);
 ```
 
 
@@ -1413,6 +1413,8 @@ os.system('jupyter nbconvert --to markdown --output "README.md" "DataExploration
 ```
 
 
-```python
 
-```
+
+    0
+
+
