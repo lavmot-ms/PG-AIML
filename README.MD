@@ -5,9 +5,9 @@
 <a>Po
 </p>
 
-<center>
+<p align="center">
 <img src="./Resources/Images/Header.png" />
-</center>
+</p>
 
 ## Getting Started
 
