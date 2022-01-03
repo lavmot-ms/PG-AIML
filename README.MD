@@ -3,7 +3,7 @@
 <b>PG-AIML</b> repository contains my projects and configuration files for the <a href="https://www.mygreatlearning.com/artificial-intelligence/courses/pg-program-online-artificial-intelligence-machine-learning" rel="noopener">Post Graduate Course in Machine Learning and Artificial Inteligence</a> program by the University of Texas Austin. 
 </p>
 
-![react-material-admin-demo](./Resources/Header.jpg)
+![react-material-admin-demo](./Resources/Assets/Header.jpg)
 
 ## Getting Started
 
