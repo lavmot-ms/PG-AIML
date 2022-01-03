@@ -56,7 +56,7 @@ sh Start.sh
 | ------------ | ------------------------------------------- | -------------------------------          |
 |                                 |
 | Assignment 1 | Data Exploration                            | [Docs](./src/Assignments/Assignment1%20Data%20Exploration/)                 |
-| Project1     | Coming...                                   | [Docs](./src/Projectone)                 |
+| Assignment 2 | Linear Regression                           | [Docs](./src/Assignments/Assignment2%20Linear%20Regression/)                |
 | Project1     | Coming...                                   | [Docs](./src/Projectone)                 |
 
 <br>
