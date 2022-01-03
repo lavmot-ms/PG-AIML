@@ -50,8 +50,6 @@ sh Setup.sh
 sh Start.sh
 ```
 
-<br>
-
 ## Projects
 
 | Tool         | Description                                 | Docs                                     |
@@ -60,8 +58,6 @@ sh Start.sh
 | Assignment 1 | Data Exploration                            | [Docs](./src/Assignments/Assignment1%20Data%20Exploration/)                 |
 | Assignment 2 | Linear Regression                           | [Docs](./src/Assignments/Assignment2%20Linear%20Regression/)                |
 | Assignment 3 | Logistic Regression                         | [Docs](./src/Assignments/Assignment2%20Logistic%20Regression/)              |
-
-<br>
 
 ## Contributing
 <blockquote>
