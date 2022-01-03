@@ -66,7 +66,7 @@ sh Start.sh
 <p>
 
 Feel free to clone, fork and make PRs to this repo. Should you need any assistance feel free to contact me at:
-Lavius.Motileng@outlook.com
+https://www.linkedin.com/in/laviusmotileng/
 <br>
 </p>
 </blockquote>
