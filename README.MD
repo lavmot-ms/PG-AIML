@@ -55,8 +55,8 @@ sh Start.sh
 | Tool         | Description                                 | Docs                                     |
 | ------------ | ------------------------------------------- | -------------------------------          |
 |                                 |
-| Assignment 1 | Data Exploration                            | [Docs](./src/Assignments/Assignment1%20Data%20Exploration/)                 |
-| Assignment 2 | Linear Regression                           | [Docs](./src/Assignments/Assignment2%20Linear%20Regression/)                |
+| Assignment 1 | Data Exploration                            | [Docs](./src/Assignments/Assignment%201%20Data%20Exploration/)                                    |
+| Assignment 2 | Linear Regression                           | [Docs](./src/Assignments/Assignment%202%20Supervised%20Learning%20-%20Regression/)                |
 | Assignment 3 | Logistic Regression                         | [Docs](./src/Assignments/Assignment2%20Logistic%20Regression/)              |
 
 ## Contributing
