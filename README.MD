@@ -1,8 +1,6 @@
 <h1 align="center">PG-AIML</h1>
 <p align="center">
 <b>PG-AIML</b> repository contains my projects and configuration files for the <a href="https://eportfolio.mygreatlearning.com/lavius-motileng" rel="noopener">Post Graduate Course in Machine Learning and Artificial Inteligence</a> program by the University of Texas Austin.
-
-<a>Po
 </p>
 
 <p align="center">
