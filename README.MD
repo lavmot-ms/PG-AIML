@@ -54,11 +54,12 @@ sh Start.sh
 
 | Tool         | Description                                 | Docs                                     |
 | ------------ | ------------------------------------------- | -------------------------------          |
-|                                 |
-| Assignment 1 | Data Exploration                            | [Docs](./src/Assignments/Assignment%201%20Data%20Exploration/)                                    |
-| Assignment 2 | Linear Regression                           | [Docs](./src/Assignments/Assignment%202%20Supervised%20Learning%20-%20Regression/)                |
-| Assignment 3 | Logistic Regression and Decision Trees      | [Docs](./src/Assignments/Assignment%203%20Logistic%20Regression%20and%20Decision%20Trees/)        |
-| Assignment 4 | Ensemble Techniques                         | [Docs](./src/Assignments/Assignment%204%20Ensemble%20Techniques/)        |
+|              |
+| Assignment 1 | Data Exploration                                | [Docs](./src/Assignments/Assignment%201%20Data%20Exploration/)                                    |
+| Assignment 2 | Linear Regression                               | [Docs](./src/Assignments/Assignment%202%20Supervised%20Learning%20-%20Regression/)                |
+| Assignment 3 | Logistic Regression and Decision Trees          | [Docs](./src/Assignments/Assignment%203%20Logistic%20Regression%20and%20Decision%20Trees/)        |
+| Assignment 4 | Ensemble Techniques                             | [Docs](./src/Assignments/Assignment%204%20Ensemble%20Techniques/)        |
+| Assignment 5 | Feature Selection, Model Selection and Tuning   | [Docs](./src/Assignments/Assignment%204%20Ensemble%20Techniques/)        |
 
 ## Contributing
 <blockquote>
