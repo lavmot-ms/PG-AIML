@@ -60,7 +60,7 @@ sh Start.sh
 | Assignment 3 | Logistic Regression and Decision Trees          | [Docs](./src/Assignments/Assignment%203%20Logistic%20Regression%20and%20Decision%20Trees/)        |
 | Assignment 4 | Ensemble Techniques                             | [Docs](./src/Assignments/Assignment%204%20Ensemble%20Techniques/)        |
 | Assignment 5 | Feature Selection, Model Selection and Tuning   | [Docs](./src/Assignments/Assignment%205%20Feature%20Selection%20and%20Model%20Selection%20and%20Tuning/)        |
-| Assignment 6 | Unsupervised Learning                           | [Docs]()
+| Assignment 6 | Unsupervised Learning                           | [Docs](./src/Assignments/Assignment%206%20Unsupervised%20Learning)
 
 ## Contributing
 <blockquote>
